@@ -22,11 +22,11 @@ class RegisterForm(UserCreationForm):
 #UserProfile Form
 class UserProfileForm(forms.ModelForm):
     Address=forms.CharField(label='Address', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    RegistratioNo=forms.CharField(label='RegistratioNo', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    RegistrationNo=forms.CharField(label='RegistrationNo', widget=forms.TextInput(attrs={'class': 'form-control'}))
     Year=forms.CharField(label='Year', widget=forms.TextInput(attrs={'class': 'form-control'}))
     Department=forms.CharField(label='Department', widget=forms.TextInput(attrs={'class': 'form-control'}))
 
    
     class Meta:
         model=UserProfile
-        fields=('Address','RegistratioNo','Year','Department')
+        fields=('Address','RegistrationNo','Year','Department')

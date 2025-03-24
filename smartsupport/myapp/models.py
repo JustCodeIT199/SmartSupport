@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 #UserProfile Model
 class UserProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE,null=True)
+    User=models.OneToOneField(User,on_delete=models.CASCADE,null=True)
     Address=models.CharField(max_length=100)
-    RegistratioNo=models.CharField(max_length=100,default='0000CE000')
+    RegistrationNo=models.CharField(max_length=100,default='0000CE00F')
     Year=models.CharField(max_length=100, default='First Year')
     Department=models.CharField(max_length=100,default='Engineering')

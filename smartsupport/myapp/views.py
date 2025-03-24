@@ -3,6 +3,7 @@ from myapp.forms import LoginForm,RegisterForm,UserProfileForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from myapp.models import UserProfile
+from django.contrib.auth.models import User
 
 # Create your views here.
 def Basepage(request):
@@ -34,28 +35,31 @@ def LogoutView(request):
     return redirect('login')
 
 #Register
+from django.contrib.auth.models import User
+
+# Register
 def RegisterView(request):
-    if request.method =='POST':
-        Register_forms =RegisterForm(request.POST)
-        UserProfile_forms =UserProfileForm(request.POST)
+    if request.method == 'POST':
+        Register_forms = RegisterForm(request.POST)
+        UserProfile_forms = UserProfileForm(request.POST)
         if Register_forms.is_valid() and UserProfile_forms.is_valid():
-            Registerforms=Register_forms.save()
-            UserProfileforms=UserProfile_forms.save(commit=False)
-            Address=UserProfile_forms.cleaned_data['Address']
-            RegistratioNo=UserProfile_forms.cleaned_data['RegistratioNo']
-            Year=UserProfile_forms.cleaned_data['Year']
-            Department=UserProfile_forms.cleaned_data['Department']
-            profile=UserProfile(User=Registerforms,Address=Address,RegistratioNo=RegistratioNo,Year=Year,Department=Department)
-            profile.save()
-            messages.success(request,"✅ You have been Registered Successfully!")
+            user = Register_forms.save()
+            UserProfileforms = UserProfile_forms.save(commit=False)
+            UserProfileforms.User = user
+            UserProfileforms.Address = UserProfile_forms.cleaned_data['Address']
+            UserProfileforms.RegistrationNo = UserProfile_forms.cleaned_data['RegistrationNo']
+            UserProfileforms.Year = UserProfile_forms.cleaned_data['Year']
+            UserProfileforms.Department = UserProfile_forms.cleaned_data['Department']
+            UserProfileforms.save()
+            messages.success(request, "✅ You have been Registered Successfully!")
             return redirect('login')
         else:
-            messages.error(request,"⚠️ You have not enter correct data!")
+            messages.error(request, "⚠️ You have not entered correct data!")
             return redirect('register')
     else:
-        Register_forms=RegisterForm()
-        UserProfile_forms=UserProfileForm()
+        Register_forms = RegisterForm()
+        UserProfile_forms = UserProfileForm()
 
-        return render(request,'Register.html',{'Register_forms':Register_forms,'UserProfile_forms':UserProfile_forms})
+        return render(request, 'Register.html', {'Register_forms': Register_forms, 'UserProfile_forms': UserProfile_forms})
 
 

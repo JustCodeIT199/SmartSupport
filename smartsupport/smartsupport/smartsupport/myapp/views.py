@@ -229,9 +229,10 @@ def accepttask(request,pk):
 
 #MyCart
 def MyCarts(request):
-        currentuser=request.user
-        Carts=MyCart.objects.filter(user=currentuser)
-        return render(request,'Mycart.html',{'Carts':Carts})    
+    currentuser = request.user
+    Carts = MyCart.objects.filter(user=currentuser)
+    return render(request, 'Mycart.html', {'Carts': Carts})
+    
 
 
 
@@ -297,3 +298,60 @@ def resolvedtask(request,pk):
     else:
        messages.success(request,"You must have to login to Reopen task!")
        return redirect('login')              
+    
+
+#Assign task    
+# from django.contrib.auth.models import User
+# from django.shortcuts import get_object_or_404
+
+# def assign_task(request, pk):
+#     task = get_object_or_404(TaskDetail, id=pk)
+#     users = User.objects.filter(is_superuser=False)  # Exclude admins from being assigned
+
+#     if request.method == "POST":
+#         selected_user_id = request.POST.get("assigned_user")
+#         selected_user = User.objects.get(id=selected_user_id)
+
+#         task.TASK_HOLDER = selected_user.username
+#         task.TASK_STATUS = "Assigned"
+#         task.save()
+
+#         MyCart(user=selected_user, task=task).save()
+
+#         messages.success(request, f"Task successfully assigned to {selected_user.username}.")
+#         return redirect("base")
+
+#     return render(request, "AssignTask.html", {"task": task, "users": users})
+
+from django.core.mail import send_mail
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
+
+def assign_task(request, pk):
+    task = get_object_or_404(TaskDetail, id=pk)
+    users = User.objects.filter(is_superuser=False)
+
+    if request.method == "POST":
+        selected_user_id = request.POST.get("assigned_user")
+        selected_user = User.objects.get(id=selected_user_id)
+
+        task.TASK_HOLDER = selected_user.username
+        task.TASK_STATUS = "Assigned"
+        task.save()
+
+        MyCart.objects.create(user=selected_user, task=task)
+
+        # Sending email notification
+        send_mail(
+            subject="New Task Assigned",
+            message=f"Hello {selected_user.username},\n\nYou have been assigned a new task: {task.TASK_TITLE}. Please check your task details on the website.",
+            from_email="2022ce05f@sigce.edu.in",
+            recipient_list=[selected_user.email],
+            fail_silently=False,
+        )
+
+        messages.success(request, f"Task successfully assigned to {selected_user.username}, and notification sent.")
+        return redirect("base")
+
+    return render(request, "AssignTask.html", {"task": task, "users": users})
+

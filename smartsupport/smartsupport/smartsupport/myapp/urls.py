@@ -26,6 +26,7 @@ urlpatterns = [
    path('closedtask/<int:pk>', views.ClosedTask,name='closedtask'),
    path('reopentask/<int:pk>', views.reopentask,name='reopentask'),
    path('resolvedtask/<int:pk>', views.resolvedtask,name='resolvedtask'),
+   path('assign_task/<int:pk>/', views.assign_task, name='assign_task'),
    
 
 

@@ -1,0 +1,36 @@
+# Opening_Comments
+def reopen_comment(request, pk):
+    if request.user.is_authenticated:
+        taskinfos = get_object_or_404(TaskDetail , id=pk)
+        comments = taskinfos.comments.all()
+        form=UsercommentsForm(request.POST or None, instance=comments)
+        if form.is_valid():
+            form.save()
+            reopentask(request,task_id)
+            return redirect('base')
+        return render(request,'openingcomment.html',{'form':form})    
+    else:
+       messages.success(request,"You must have to login to update task!")
+       return redirect('login')
+
+class UserComments(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True, blank=True)
+    task=models.ForeignKey(TaskDetail,related_name = 'comments',on_delete=models.CASCADE,null=True, blank=True)
+    Closing_Remarks=models.TextField(null=True, blank=True)
+    Opening_Remarks=models.TextField(null=True, blank=True)
+    TEXT_FILE= models.FileField(upload_to='accepted_attachments/', null=True, blank=True)
+
+
+
+
+      
+#UsercommentsForm
+class UsercommentsForm(forms.ModelForm):
+    class Meta:
+        model=UserComments
+        fields=( 'Closing_Remarks','Opening_Remarks','TEXT_FILE')
+        widgets = {
+           'Closing_Remarks' : forms.Textarea(attrs={'rows': 4,'cols':40 }),
+           'Opening_Remarks' : forms.Textarea(attrs={'rows': 4,'cols':40 }),
+        }
+

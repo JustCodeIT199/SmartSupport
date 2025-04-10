@@ -1,0 +1,1087 @@
+                                               [Python Introduction By Durgesh R Yadav]
+
+1)Python Syllabus
+1. Introduction to Python Language
+1. Download & Install Python
+1. Download & Install VS Code
+
+1)What is python?
+Python is an interpreted, object-oriented, high-level,dynamicaly typing programming language. 
+
+2)When was the python programming language created?
+Python was created by Guido van Rossum in 1989, and Officely first released on 20-Feb-1991.
+The name of the Python programming language comes from an old BBC television comedy sketch series called Monty Python's Flying Circus.
+
+3)What are Python Features and Advantages?
+Free and Open-Source.
+Platform Independent.(you can use Python on various platforms, including macOS, Windows, and Linux. )
+scripting and Interpreted(scripting and interpreted languages do not require the compilation[the process of converting the source code into machine code is called compilation] step).
+Object-Oriented and Procedure-Oriented.
+(Class.
+Objects.
+Polymorphism.
+Encapsulation.
+Inheritance.
+Data Abstraction.)
+dynamic typing(Dynamic typing means that the type of the variable is determined only during runtime.)
+Easy to Code and Easy to Read(Python is a very high-level programming language, Python code looks like simple English words.)
+
+4)Top Companies that Use Python.
+Netflix.
+Google.
+Facebook.
+Amazon.
+NASA.
+Quora.
+Instagram.
+
+5)Where can we use Python?
+Web Development.
+Data Analytics.
+Data science.
+Automation.
+AI & Machine Learning.
+Game Development.
+install python 
+install vs code. 
+6)Python Version.
+python1 introduce in jan 1994.
+python2 introduce in jan 2000.
+python3 introduce in jan 2008.
+
+Current version
+python3.10.4 2023
+
+-----------------------------------------------
+
+2. Python  Identifiers and Keywords
+Identifiers->1
+Python Identifier is the name what we are  giving to  identify a variable, function, class, module or other
+It can be Class Name OR Function Name OR Module Name OR Variable Name(Python Variable is containers that store values).
+eg.a=10
+Rules to define Identifier in Python.
+The only allowed characters in python are 
+alphabet symbols either are upper case or lover case
+a=10
+A=10
+digits between 0 to 9
+A1=ram
+b2=sham
+underscore symboll _
+_A=rahul   
+__A=rahul
+__A__=rahul
+
+
+
+Reserved Keywords->2
+In python some words are reserved to represent some meaning or functionality.
+Such type of words are called reserved words.
+There are 33 reserved woreds in python .
+
+False,	def,	if,	raise,
+None,	del,	import,	return,
+True,	elif	in	try
+and	,else,	is,	while,
+as,	except,	lambda,	with,
+assert,	finally,	nonlocal,	yield,
+break,	for,	not,
+class,	form,	or,
+continue,	global	,pass,
+
+
+2. Python Comments
+2. Python Variables
+-----------------------------------------------
+3. Python Data Types
+
+Data types->3
+Data type represent the type of data present in side the variable.
+In Python we are not requred to specify the type of variable explicitly , based on the value provided the data type will be assigend automaticaly.Hence python called Dynamically typed language.
+
+Python has the following data types built-in by default, in these categories:
+Text Type:	str
+Numeric Types:	int, float, complex
+Sequence Types:	list, tuple, range
+Mapping Type:	dict
+Set Types:	set, frozenset
+Boolean Type:	bool
+Binary Types:	bytes, bytearray, memoryview
+None Type:	NoneType
+-----------------------------------------------
+4. Python Built-in Functions
+Python Built in Functions
+type()	Returns the type of an object
+id()	Returns the id of an object
+print()	Prints to the standard output device
+-------------------------------------------------------------------------
+Type Casting->
+We can convert one type value to another type.This conversion is called Type Casting or Type Conversion.
+The following are the various in built functions for type casting.
+int(), float(), str(),tuple(), set(), list(), dict(), 
+---------------------------------------------------------------------------------
+Python Escape Characters->
+txt = "We are the so-called "Vikings" from the north."
+txt = "We are the so-called \"Vikings\" from the north."
+-----------------------------------------------
+5. Python Operators
+Python Operators->4
+Operators are used to perform operations on variables and values.
+Python divides the operators in the following groups:
+
+Arithmetic operators->
+
++	Addition	x + y	
+-	Subtraction	x - y	
+*	Multiplication	x * y	
+/	Division	x / y	
+%	Modulus	x % y	
+**	Exponentiation	x ** y	
+//	Floor division	x // y
+
+Assignment operators->
+=	x = 5	x = 5	
++=	x += 3	x = x + 3	
+-=	x -= 3	x = x - 3	
+*=	x *= 3	x = x * 3	
+/=	x /= 3	x = x / 3	
+%=	x %= 3	x = x % 3	
+//=	x //= 3	x = x // 3	
+**=	x **= 3	x = x ** 3	
+&=	x &= 3	x = x & 3	
+|=	x |= 3	x = x | 3	
+^=	x ^= 3	x = x ^ 3	
+>>=	x >>= 3	x = x >> 3	
+<<=	x <<= 3	x = x << 3	
+
+Comparison operators->
+==	Equal	x == y	
+!=	Not equal	x != y	
+>	Greater than	x > y	
+<	Less than	x < y	
+>=	Greater than or equal to	x >= y	
+<=	Less than or equal to	x <= y
+
+Logical operators->
+and 	Returns True if both statements are true	x < 5 and  x < 10	
+or	Returns True if one of the statements is true	x < 5 or x < 4	
+not	Reverse the result, returns False if the result is true	not(x < 5 and x < 10)
+
+Identity operators->
+is 	Returns True if both variables are the same object	x is y	
+is not	Returns True if both variables are not the same object	x is not y
+Membership operators->
+in 	Returns True if a sequence with the specified value is present in the object	x in y	
+not in	Returns True if a sequence with the specified value is not present in the object	x not in y
+Bitwise operators->
+& 	AND	Sets each bit to 1 if both bits are 1	x & y	
+|	OR	Sets each bit to 1 if one of two bits is 1	x | y	
+^	XOR	Sets each bit to 1 if only one of two bits is 1	x ^ y	
+~	NOT	Inverts all the bits	~x	
+<<	Zero fill left shift	Shift left by pushing zeros in from the right and let the leftmost bits fall off	x << 2	
+>>	Signed right shift	Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off	x >> 2
+
+---------------------------------------------------------
+Ternary Operator in Python->
+The ternary operator in Python is a concise way of writing simple if/else statements in a single line. It returns a true or false value by evaluating a boolean condition. It is shorter and more readable than simple if/else statements.
+
+-----------------------------------------------
+6. Python User Input
+Reading Dynamic value from the keyboard.
+write a program to add two number.
+write a program to read emplyee data and print.
+how to read multiple value from keyboardin single line.
+-----------------------------------------------
+7. Python Control Flow – Decision Making( if ,else )
+
+write a program to find the biggest one from given 2 number.
+write a program to find the biggest one from given 3 number.
+write a program to check wheather the given number is between  1 to 10 or not.
+
+
+8. Python Control Flow – Looping( for loop, while loop)
+If we want to execute a group of statment or any collection multiple times then we should go for itretive statements or loop.
+Python support 2 types of  itretive statements.
+1) For loop
+If we want to execute some action for every element which is present in statment then we should go with the for loop.
+2) While loop
+If we want to execute some action for  element based on some condition then we should go for with While loop.
+-----------------------------------------------
+9. Python Control Flow – Branching(break, continue, pass)
+-----------------------------------------------
+10. Python Numbers
+-----------------------------------------------
+11. Python Strings
+-----------------------------------------------
+12. Python Lists
+WAY-1
+wrp to find the max value from list
+list=[1,23,4,5,4,3,5,6,7,8]
+max=0
+for x in list:
+  if x>max:
+   max=x
+print(max)
+
+WAY-2
+#wrp to find the max value from list
+list=[1,23,4,5,4,3,5,6,70,8]
+large=max(list)
+print(large)
+
+WAY-1
+# Write a Python program to get the smallest number from a list.
+list=[-1,1,23,4,5,4,3,-5,6,7,8]
+min=0
+for x in list:
+  if x<min:
+   min=x
+print(min)
+
+WAY-2
+list=[1,23,4,5,4,3,5,6,-70,8]
+large=min(list)
+print(large)
+
+WAY-1
+sum of list
+list=[1,23]
+a=0
+for x in list:
+ a=a+x
+print(a)
+
+WAY-2
+list=[1,23]
+a=sum(list)
+print(a)
+
+WAY-1
+sum odd of list
+list=[1,3,5,2]
+a=0
+for x in list:
+ if x%2!=0:
+  a=a+x
+print(a) 
+
+Take list and return new list with even number only
+list=[1,2,3,4,5,6,7,8,9]
+new_list=[]
+for x in list:
+ if x%2==0:
+  new_list.append(x)
+print(new_list) 
+
+program to swap first  and last element of a list
+
+list=[12,32,4,5,6,887,5,4,3,31,2]
+l=len(list)
+temp=list[0]
+list[0]=list[l-1]
+list[l-1]=temp
+print(list)
+ 
+#Write a Python program to multiply all the items in a list by 2.
+list=[1,2,3,4,5,6,7,8,9]
+new_list=[]
+for x in list:
+ new_list.append(x**2)
+print(new_list) 
+
+
+#Write a Python program to multiply all the items in a list.
+list=[1,2,3,4]
+a=1
+for x in list:
+  a=a*x
+print(a)  
+
+WAY-1
+#Write a Python program to remove duplicates from a list.
+list=[21,3,2,32,4,5,6,7,7,6,6]
+new_list=[]
+for x in list:
+   if x not in  new_list:
+      new_list.append(x)
+print(new_list) 
+
+ WAY-2
+ #Write a Python program to remove duplicates from a list.
+list=[21,3,2,32,4,5,6,7,7,6,6]
+print(set(list))
+
+POSITIVE AND NEGATIVE INDEX---------------------------
+WAY-1
+list=['a','b','c','d']
+l=len(list)
+list2=[(list[x],x,x-l) for x in range(l)]
+print(list2)
+
+WAY-2
+list=['a','b','c','d']
+l=len(list)
+for x in range(l):
+    print(list[x],x,x-l)
+    
+#Write a Python program to move all zero digits to the end of a given list of numbers
+list=[3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
+list.sort(reverse=True)
+print(list)
+
+prime  number
+list=[1,2,3,4,5,6,7,8,9]
+ans_list=[]
+for num in list:
+    if num==1 or num==0:
+       continue
+    for x in range(2,num): 
+        if num%x==0:
+           break
+    else:
+         ans_list.append(num)
+print(ans_list)
+
+#num = int(input("enter your number"))
+num=9
+i=2
+n=0
+while i<num:
+    if num%i==0:
+       n=1
+       break
+    i=i+1
+if n==0:
+   print(num,'is the prime number')
+elif n==1:
+      print(num,'is the not prime number')
+
+	  
+SYMATRICAL-------------------
+
+name='khoqkho'
+l=list(name)
+s=''
+s1=''
+length=len(name)
+mid=len(name)//2
+if length//2==0:
+  for x in range(0,mid):
+      s=s+l[x]
+     
+  for x in range(mid,length):
+      s1=s1+l[x]
+ 
+else:
+   for x in range(0,mid):
+      s=s+l[x]
+     
+   for x in range(mid+1,length):
+      s1=s1+l[x]
+      
+if s1==s:
+    print("symatric")
+else:
+     print("asymatric")
+WAY-1
+#Write a Python program to check if a list is empty or not.
+list=[1,2,3]
+if not list:
+ print('fuck u')
+else:
+ print('not empty')
+ 
+ WAY-2
+#Write a Python program to check if a list is empty or not.
+ list=[]
+a=len(list)
+print(a)
+
+
+
+SUM-----------
+list=[]
+for x in range(0,11):
+
+    if x%2==0:
+       sum=x**2
+       list.append(sum)
+print(list) 
+     
+square of even number upto 10-----------------------
+list=[x**2 for x in range(11) if x%2==0]
+print(list)   
+
+UPPER CASE-----------
+
+list=['ram','sham','gita']
+list2=[x.upper() for x in list]
+print(list2)   
+
+list=['ram','sham','gita']
+list2=[x.capitalize() for x in list]
+print(list2)
+-----------------------------------------------
+13. Python Tuples
+-----------------------------------------------
+14. Python Sets
+-----------------------------------------------
+15. Python Dictionaries
+-----------------------------------------------
+16. Python Arrays does not support
+-----------------------------------------------
+17. Python user-defined Functions
+-----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					 Python OOPs Concepts
+
+1).What is Class?
+Python is an object oriented programming language.
+And To create objects we required some plan or blue print,which is nothing but class.
+or we can say like that class is the container which is used store properties and action of object.
+so we can write a class to represent properties and action of object.
+
+object->object is nothing but the instance of a Class which have properties and action
+(any things which have some properties and method eg.mobile).
+
+properties ->properties is nothing but the variables,In python we have 3 types of variables.
+Types of variables:->
+
+1)instance variables(object level variables)
+2)static variables(class level variables)
+3)local variables(method level variables)
+
+action -> action is nothing but the methods,In python we have 3 types of methods.
+Types of methods:->
+
+1)instance method.
+2)class method.
+3)static method.
+
+2)How to Create class.
+->To create the the class we have to use keyword class className.
+class Myclass:
+    a='ram'
+    b='sham'
+    def show(self):
+        print(self.a)
+        print(self.b)
+obj=Myclass() 
+obj.show()
+
+3) Python Constructors
+->Constructor is the spacel method in the python.
+the name of the Constructor shuld be __init__(self).
+the Constructor will be executed automatically at the time of object creation.
+the main purpose of  Constructor is to declare and initialize instance variables.
+per object Constructor will execute only one.
+Constructor can take atlist one arguments(self).
+Constructor is the optional and if we are not providing any Constructor then python will provide 
+default Constructor.
+
+->class without parameter
+class Mobile:
+ def __init__(self):
+  print('i am class cunstructor')
+  self.model='samsung M34'
+  self.price=16000
+ def show(self):
+  print('mobile model is',self.model)
+  print('mobile price is',self.price)
+obj= Mobile() 
+print(obj.model)
+print(obj.price)
+obj.show()
+
+->class with parameter
+class Mobile:
+ def __init__(self,m,p):
+  print('i am class cunstructor')
+  self.model=m
+  self.price=p
+ def show(self,y):
+  self.year=y
+ 
+  print('mobile model is',self.model)
+  print('mobile price is',self.price)
+  print('mobile lounch year is',self.year)
+obj= Mobile('samsung M34',16000) 
+print(obj.model)
+print(obj.price)
+obj.show(2023)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4)What is instance variables(object level variables)->
+1)If the value of the variables change from object to object,then such type of variables are 
+  called instance variables.
+2)For every object separate copy of instance variables will created.
+
+5)Where we can declare the instance variables->
+In python we have 3 places to declare instance variables:
+1)Inside the Constructor by using self variable.
+2)Inside the instance method by using self variable.
+3)Outside of the class by using object refrence variable.
+
+6)How to acces instance variables->
+We can acces instance variables with in class by using self variable and outside of the class by 
+using object refrence variable.
+
+7)How to delete instance variables from object->
+1)We can delete instance variables within class by using.
+del self.variableName.
+2)and outside of the class by using .
+del objectrefrencevariable.variableName.
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+8)What is static variables(class level variables)->
+1)If the value of variable is not changing from object to object,Such type of variables are called static variables.
+2)for total class only one copy of static variable will be created and shared by all objects of that class.
+we can access static variables either by class name or by object refrence.
+But it is recommended to use class name.
+
+9)Where we can declare the static variables->
+1)In genral we can declare within the class directly but from out side of any method.
+2)Inside constructor by using class name.
+3)Inside instance method by using class name.  
+4)Inside class method by using class name or cls variable.
+5)Inside static method by using class name.
+
+example.
+class Mobile:
+    print('In genral we can declare within the class directly but from out side of any method.')
+    a='samsung'
+  def __init__(self):
+      print('Inside constructor by using class name.')
+      Mobile.b='oppo'
+
+  def m1(self): 
+      print('Inside instance method by using class name.')
+      Mobile.c='oppo'
+
+  @classmethod
+  def m2(cls):
+      print('Inside class method by using class name or cls variable.')
+      Mobile.d='nothing'
+      cls.e='redmi'
+
+ @staticmethod
+  def m3():
+      print('Inside static method by using class name.')
+      Mobile.f='iphone'
+     
+
+obj=Mobile()# Object creation
+obj.m1()# callin of instance method
+obj.m2()# callin of class method
+obj.m3()# callin of static method
+
+10)How to acces static variables->
+1)Inside constructor:by using class name or self.
+2)Inside instance method:by using class name or self
+3)Inside class method:by using class name or cls variables.
+4)Inside static method:by using class name.
+5)from out side of class:by using class name or object refarence variable.
+example.
+class Mobile:
+    print('In genral we can declare within the class directly but from out side of any method.')
+    a='samsung'
+  def __init__(self):
+      print('Inside constructor by using class name.')
+      print('acces static variable inside constructor',Mobile.a)
+      Mobile.b='oppo'
+
+  def m1(self): 
+      print('Inside instance method by using class name.')
+      print('acces static variable inside instance method',Mobile.a)
+      Mobile.c='oppo'
+
+  @classmethod
+  def m2(cls):
+      print('Inside class method by using class name or cls variable.')
+      print('acces static variable inside class method',Mobile.a)
+      Mobile.d='nothing'
+      cls.e='redmi'
+
+ @staticmethod
+  def m3():
+      print('Inside static method by using class name.')
+      print('acces static variable inside static method',Mobile.a)
+      Mobile.f='iphone'
+     
+
+obj=Mobile()# Object creation
+print('acces static variable from out side of class'.Mobile.a)
+obj.m1()# callin of instance method
+obj.m2()# callin of class method
+obj.m3()# callin of static method
+
+
+
+
+11)How to delete static variables from object->
+1)We can delete static variablesfrom anywhere by using.
+del class name.variableName.
+2)But inside class method we can also use cls .
+
+del cls.variableName.
+
+12)Where we can modifiy the value of static variable->
+Anywhere either within class or outside of class we can modify by using classname.
+But inside the class method by we can also use cls.
+
+13)What is local variables(method level variables)->
+Sometime to meet temporary requirements of programmer, we can declare variables inside a method directly,
+such type of variables are called local variable or temporary variables
+local variables are created at the time of method execution and destroyed once method complites.
+local variables of method can not be accessed from outside of method.
+
+example.
+class Mobile:
+  
+  def show(self):
+     price=2000
+     print(price)
+
+ def model(self):
+     model='samsung M34'
+     print(price)
+     print(model)
+ 
+
+obj.mobile()
+obj.show
+obj.model
+
+
+Types of Methods:
+Inside of python class we have 3 types of methods.
+1)Instance Method(instance variable).
+2)Class Method(static variable).
+3)Static Method(local variable).
+
+1)What is Instance Method?
+if we are using instance variable in method such type of method are called as instance method.
+Inside innstance method we have to pass self variable.eg.def methodName(self).
+By using the self variable we can able to acces instance variables inside instance method.
+Within the class we call or acces instance variable in instance method using self variable and outside of the class by using object reference variables.
+We can call instance method by using object reference variable.	
+Example.
+with perameter.
+class Student:
+  def __init__(self,n,m):
+    print('i am constructor')
+    self.name = n
+    self.marks = m
+  def show(self):
+    print(self.name)
+    print(self.marks)
+obj=Student('ram',29)
+obj.show()
+
+without perameter.
+class Student:
+  def __init__(self):
+    print('i am constructor')
+    self.name = 'durgesh'
+    self.marks = 100
+  def show(self):
+    print(self.name)
+    print(self.marks)
+obj=Student()
+obj.show()
+
+2)What is class method?
+if we are using static variable in method such type of method are called as static method.
+We have to use @classmethod decorater to create class method.
+Inside static method we have to pass cls variable.eg.def methodName(cls).
+We can call class method by using class name or object reference variable.
+
+Example.
+class Company:
+  company_name="HCL"
+  def work(cls,name):
+     print('{} work in {} company '.format(name,cls.company_name))
+obj=Animal()
+Company.work('durgesh')
+Company.work('ram')
+
+3)What is Static Method?
+In this method we are using only local variable(we are not using any instance or static variable).
+in case of static method we do not requre to use self or cls variable.
+We have to use @staticmethod decorater to create static method.
+We can call static method by using class name or object reference variable.eg.def methodName().
+Example.
+class Calculater:
+     def add(a,b):
+        print('addition of a and b is ',a + b)
+obj=Calculater()
+obj.add(10,20)
+
+
+class Mobile:# class 
+ brand='samsung' #class/statict variable
+ def __init__(self,m,p):# cunstructor
+  print('i am class cunstructor')
+  self.model=m #instent variable
+  self.price=p #instent variable
+  
+ def show(self,y):# instent method
+  print('i am instent method')
+  self.year=y # instent variable
+  print('mobile model is',self.model)
+  print('mobile price is',self.price)
+  print('mobile lounch year is',self.year)
+  
+ @classmethod
+ def showbrand(cls):# class method
+  print('i am class method')
+  print('mobile brand is',cls.brand)
+  
+ @staticmethod
+ def fetures():#static method
+  print('i am static method')
+  ram='8gb'
+  storage='128gb'
+  print('mobile ram is',ram)
+  print('mobile storage  is',storage)
+  
+obj= Mobile('samsung M34',16000) #class object
+obj.show(2023)#insted method calling
+print(obj.model)
+print(obj.price)
+
+Mobile.showbrand()
+obj.showbrand()#class method calling
+Mobile.fetures()
+obj.fetures()#static method calling
+
+-----------------------------------------------------------------------------
+Passing one class members and atribute to other class
+
+class Army:
+ arrmy_name='indian'
+ def __init__(self,name,age):
+  self.mager=name
+  self.age=age
+ def show(self):
+  print('mager name is',self.mager)
+  print('mager age is',self.age)
+ 
+class Gun:
+ @staticmethod
+ def gundetails(s):
+  
+  gun_name='AK47'
+  range=156
+  print('gun name is',gun_name)
+  print('gun range is',range)
+  print('mager name is',s.mager)
+  print('mager age is',s.age)
+ 
+obj= Army('manoj pande',45)
+Gun.gundetails(obj)
+-------------------------------------------  
+Nested class (inner class)
+class Persion:
+  def __init__(self):
+    print("i am cunstructor")
+    self.name='durgesh'
+    self.age=26
+    self.obj=self.Task()
+    
+  def show(self):
+    print("Persion name is",self.name)
+    print("Persion name is",self.age)
+  
+  class Task:
+    def __init__(self):
+     print("i am inner class cunstructor")
+     self.add='mumbai'
+     self.pin=421302
+     self.name='rama'
+    def display(self):
+     print("Persion name is",self.name)
+     print("Persion name is",self.add)
+     print("Persion name is",self.pin)
+
+p=Persion()
+p.obj.display()
+print(p.obj.name)
+p.show()
+  
+  
+ 
+-----------------------------------------------
+25. Python Inheritance
+Note-> Chiled Class is able to access all method,atribute and constructor of parent class but parent class can not 
+access the chiled class atribute and method.
+if parent class having any formal argument then chiled class is reponsible to provide actually value for that at the time of object creation.
+if we have constructor in parent class and chiled calss then chilled class constructor will we called.
+SINGLE Inheritance:
+CASE-1:
+class Father:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+    print("i am father class")
+
+  def father_method(self):
+    print(self.firstname, self.lastname)
+
+class Son(Father):
+  def show(self,name):
+    self.chiled_name=name
+    print("i am chiled class",self.chiled_name)
+s=Son('durgesh','yadav') 
+s.father_method()
+s.show('kalpana')
+
+CASE-2:(constructor overiding)
+if we have constructor in parent class and chiled calss then chilled class constructor will we called.
+class Father:
+  def __init__(self):
+    self.firstname = 'Rajkumar'
+    self.lastname = 'yadav'
+    print("i am father class constructor")
+
+  def father_method(self):
+    print("i am father class insted method")
+    print(self.firstname, self.lastname)
+    
+
+
+class Son(Father):
+  def __init__(self):
+    print("i am son class constructor") 
+    self.firstname = 'Durgesh'
+    self.lastname = 'Yadav'
+    
+  def show(self,name):
+    print("i am son class insted method")
+    self.chiled_name=name
+    print(self.chiled_name)
+   
+
+s=Son() 
+s.father_method()
+s.show('durgesh')
+
+CASE-3: called both father and chiled class constructor(super().__init__())
+class Father:
+  def __init__(self,m):
+    self.money=m
+    self.firstname = 'Rajkumar'
+    self.lastname = 'yadav'
+    print("i am father class constructor")
+
+  def father_method(self):
+    print("i am father class insted method")
+    print(self.firstname, self.lastname)
+    
+
+
+class Son(Father):
+  def __init__(self,m):
+    super().__init__(m)
+    print("i am son class constructor") 
+    self.firstname = 'Durgesh'
+    self.lastname = 'Yadav'
+    
+  def show(self,name):
+    print("i am son class insted method",self.money)
+    self.chiled_name=name
+    print(self.chiled_name)
+   
+
+s=Son(1000) 
+s.father_method()
+s.show('durgesh')
+
+
+ MULTI LEVEL Inheritance :(a class extends to another class that is already extended from another class .multi level inheritance is almost same as single inheritance we can access all the method and atribute of all parents class by chiled calss by the creating object of chiled class )
+ CASE-1:
+class Father:
+   def showf(self):
+     print('i am father class method')
+class Son(Father):
+   def shows(self):
+     print('i am son class method')
+class GrandSon(Son):
+   def showg(self):
+     print('i am GrandSon class method')
+     
+g=GrandSon()
+g.showf()
+g.shows()
+g.showg()
+   
+CASE-2:(constructor overiding)
+if we have constructor in parent class and chiled calss then chilled class constructor will we called.
+class Father:
+   def __init__(self):
+      print('i am father class constructor')
+   def showf(self):
+     print('i am father class method')
+class Son(Father):
+   def __init__(self):
+      print('i am Son class constructor')
+   def shows(self):
+     print('i am son class method')
+class GrandSon(Son):
+   def __init__(self):
+      super().__init__()
+      print('i am GrandSon class constructor')
+   def showg(self):
+     print('i am GrandSon class method')
+     
+g=GrandSon()
+g.showf()
+g.shows()
+g.showg()
+     
+Hierarchical Inheritance (if there is one parent class and multiple chiled class then it is comes under Hierarchical inheritance)	
+CASE-1:(the chiled class can access the father class method and atribute but the siblings can not acces other siblings property)
+if we have constructor in parent class and chiled calss then chilled class constructor will we called.
+class Father:
+   def showf(self):
+     print('i am father class method')
+	 
+class Son(Father): 
+   def shows(self):
+     print('i am son class method')
+	 
+class Doughter(Father):
+   
+      print('i am Doughter class constructor')
+   def showg(self):
+     print('i am Doughter class method')
+     
+g=Doughter()
+g.showf()
+g.showg()
+s=Son()
+s.shows()
+s.showf()
+
+CASE-2:(constructor overiding)
+if we have constructor in parent class and chiled calss then chilled class constructor will we called. 
+class Father:
+   def __init__(self):
+      print('i am father class constructor')
+   def showf(self):
+     print('i am father class method')
+class Son(Father):
+   def __init__(self):
+      print('i am Son class constructor')
+   def shows(self):
+     print('i am son class method')
+class Doughter(Father):
+   def __init__(self):
+      super().__init__()
+      print('i am Doughter class constructor')
+   def showg(self):
+     print('i am Doughter class method')
+     
+g=Doughter()
+g.showf()
+g.showg()
+s=Son()
+s.shows()
+s.showf() 
+
+MULTIPLE inheritance:(if class having more thane one parent class then its called MULTIPLE inheritance)
+CASE-1:
+class Father:
+   def showf(self):
+     print('i am father class method')
+class mother:
+   def showm(self):
+     print('i am mother class method')
+class Doughter(Father,mother):
+   def showg(self):
+     print('i am Doughter class method')
+     
+g=Doughter()
+g.showf()
+g.showm()
+g.showg()
+CASE-2:(constructor overiding-> in multiple inheritance we have more thane one parent at that time in constructor overiding our chiled class object will confused which parent class constructor need to call by super().__init__() at that time we need to write super().__init__() in all class but there is one twist shuch it will always look for parent constructor from left to right which we have writen in chiled class )
+class Father:
+   def __init__(self):
+      super().__init__()
+      print('i am father class counstractor')
+   def showf(self):
+     print('i am father class method')
+class Mother:
+   def __init__(self):
+      super().__init__()
+      print('i am mother class counstractor')
+   def showm(self):
+     print('i am mother class method')
+class Doughter(Father,Mother):
+   def __init__(self):
+      super().__init__()
+      print('i am Doughter class counstractor')
+
+   def showg(self):
+     print('i am Doughter class method')
+     
+g=Doughter()
+
+-----------------------------------------------
+26. Python Polymorphism
+-----------------------------------------------
+27. Python Abstraction
+-----------------------------------------------
+28. Python Encapsulation
+-----------------------------------------------
+18. Python – Modules
+-----------------------------------------------
+19. Python File Handling
+-----------------------------------------------
+20. Python Exceptions Handling
+-----------------------------------------------
+21. Regular Expressions
+-----------------------------------------------
+
+  

@@ -1,0 +1,12 @@
+{% extends 'Base.html'%}
+    {% block content %}
+    <div class="col-4 offset-3">
+    <h1>User Profile page</h1>
+   <form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <br>
+    <button type="submit" class="btn btn-secondary">Save</button>
+   </form>
+</div>
+    {% endblock content %}

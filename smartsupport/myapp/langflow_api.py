@@ -12,7 +12,7 @@ payload = {
 }
 
 # Retrieve the application token from an environment variable
-application_token = os.getenv("AstraCS:kMuJzZHusbphuPrZHZraXjjG:1c8623ed51ccb531cdc9a63acefd70e13e6e10ea5170b0bb6dc997f88cac93d4")
+application_token = os.getenv("api key")
 
 if not application_token:
     raise ValueError("Application token not found. Set the 'APPLICATION_TOKEN' environment variable.")

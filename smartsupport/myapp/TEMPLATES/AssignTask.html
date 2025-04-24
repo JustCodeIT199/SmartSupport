@@ -1,0 +1,31 @@
+{% extends 'Base.html' %}
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg rounded-4" style="width: 100%; max-width: 600px;">
+        <div class="card-header bg-success text-white rounded-top-4">
+            <h4 class="mb-0 text-center">Assign Task: {{ task.TASK_TITLE }}</h4>
+        </div>
+
+        <div class="card-body bg-light">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="assigned_user" class="form-label">Select User:</label>
+                    <select name="assigned_user" id="assigned_user" class="form-select">
+                        {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.username }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-outline-success">Assign Task</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer bg-white text-end">
+            <a href="{% url 'base' %}" class="btn btn-outline-primary">Go Back</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

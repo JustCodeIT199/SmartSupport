@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #0066ff;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">SmartSupport</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Visible to all users -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'base' %}">Home</a>
+          </li>
+  
+          {% if not request.user.is_authenticated %}
+            <!-- Visible to unauthenticated users -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+          {% elif request.user.is_superuser %}
+            <!-- Visible to superusers -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'taskdetails' %}">Create Task</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mycart' %}">MyCart {{task_count}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'status_task' %}">Dashboard</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ request.user.username|capfirst }}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Show Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'ChangePassword' %}">Change Password</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <!-- Visible to regular authenticated users -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'taskdetails' %}">Create Task</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ request.user.username|capfirst }}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Show Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'ChangePassword' %}">Change Password</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

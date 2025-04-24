@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartSupport</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* Styling the table container */
+    .col-4.offset-4 {
+      margin-top: 20px;
+    }
+
+    /* Table styling */
+    #smart {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #smart th {
+      background-color: #f8f9fa;
+      color: #343a40;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    #smart td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    #smart tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    #success-alert {
+      text-align: center;
+      padding: 10px;
+      margin: 10px auto;
+    }
+
+    .btn-success {
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'Navbar.html'%}
+  <div class="col-4 offset-4">
+    {% if messages %}
+    {% for message in messages %}
+    <div id="success-alert" class="alert 
+        {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-danger{% endif %} "
+      role="alert">
+      {{ message }}
+    </div>
+    <script>
+      // Hide the alert after 3 seconds (3000 ms)
+      setTimeout(function () {
+        const alertBox = document.getElementById("success-alert");
+        if (alertBox) {
+          alertBox.style.display = "none";
+        }
+      }, 3000); // 3000 ms = 3 seconds
+    </script>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  {% block content %}
+  <table id="smart" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">TASK ID</th>
+        <th scope="col">TASK TITLE</th>
+        <th scope="col">TASK CREATED BY</th>
+        <th scope="col">TASK CREATED ON</th>
+        <th scope="col">TASK DUE DATE</th>
+        <th scope="col">TASK STATUS</th>
+        <th scope="col">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for taskdata in Taskdatas %}
+      <tr>
+        <td>{{taskdata.id}}</td>
+        <td>{{taskdata.TASK_TITLE}}</td>
+        <td>{{taskdata.TASK_CREATED}}</td>
+        <td>{{taskdata.TASK_CREATED_ON}}</td>
+        <td>{{taskdata.TASK_DUE_DATE}}</td>
+        <td>{{taskdata.TASK_STATUS}}</td>
+        <td><a href="{% url 'taskinfo' taskdata.id %}" class="btn btn-success">View</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% endblock content %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#smart').DataTable({
+        dom: 'Blfrtip',
+        buttons: [
+          {
+            extend: 'excelHtml5',
+            title: 'Task Data',
+            text: 'Export to Excel',
+            exportOptions: {
+              columns: [0, 1, 2, 3, 4, 5] // Excludes the ACTION column (index 7)
+            }
+          },
+          {
+            extend: 'csvHtml5',
+            title: 'Task Data',
+            text: 'Export to CSV',
+            exportOptions: {
+              columns: [0, 1, 2, 3, 4, 5] // Excludes the ACTION column (index 7)
+            }
+          },
+          {
+            extend: 'pdfHtml5',
+            title: 'Task Data',
+            className: 'btn_pdf',
+            text: 'Export to PDF',
+            exportOptions: {
+              columns: [0, 1, 2, 3, 4, 5] // Excludes the ACTION column (index 7)
+            }
+          }
+        ]
+      });
+    });
+
+  </script>
+</body>
+
+</html>

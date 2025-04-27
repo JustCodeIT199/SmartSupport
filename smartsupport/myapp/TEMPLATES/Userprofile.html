@@ -1,32 +1,40 @@
 {% extends 'Base.html' %}
 {% block content %}
 <br>
-<div class="col-4 offset-1">
-    <div class="card">
-        <div class="card-header">
-            <strong>Welcome</strong> <strong>{{ request.user.first_name }}</strong>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow rounded-4" style="max-width: 32rem; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid #d0d0d0;">
+
+        <div class="card-header text-center rounded-top-4" style="background-color: #0066ff; color: white;">
+            <h4 class="mb-0">Welcome, {{ request.user.first_name }}! </h4>
         </div>
+
         {% for ProfileData in ProfileDatas %}
-        <div class="card-body">
-            <h5 class="card-title"> 
-                <strong>First Name:</strong> {{ request.user.first_name }}<br>
-                <strong>Last Name:</strong> {{ request.user.last_name }}<br>
-                <strong>User Name:</strong> {{ request.user.username }}<br>
-                <strong>Email:</strong> {{ request.user.email }}<br>
-                <strong>Address:</strong> {{ ProfileData.Address }}<br>
-                <strong>RegistrationNo:</strong> {{ ProfileData.RegistrationNo }}<br>
-                <strong>Year:</strong> {{ ProfileData.Year }}<br>
-                <strong>Department:</strong> {{ ProfileData.Department }}<br>
-            </h5>
-        </div>  
+        <div class="card-body px-5 py-4" style="background-color: #f5f9ff;">
+            <ul class="list-unstyled">
+                <li class="mb-3"><strong>First Name:</strong> {{ request.user.first_name }}</li>
+                <li class="mb-3"><strong>Last Name:</strong> {{ request.user.last_name }}</li>
+                <li class="mb-3"><strong>User Name:</strong> {{ request.user.username }}</li>
+                <li class="mb-3"><strong>Email:</strong> {{ request.user.email }}</li>
+                <li class="mb-3"><strong>Address:</strong> {{ ProfileData.Address }}</li>
+                <li class="mb-3"><strong>Registration No:</strong> {{ ProfileData.RegistrationNo }}</li>
+                <li class="mb-3"><strong>Year:</strong> {{ ProfileData.Year }}</li>
+                <li class="mb-3"><strong>Department:</strong> {{ ProfileData.Department }}</li>
+            </ul>
         </div>
         {% endfor %}
-        
-            {% for ProfileData in ProfileDatas %}
-            <div class="card-footer text-body-secondary">
-                <a href="{% url 'update_profile' ProfileData.id %}" class="btn btn-primary">Edit Profile</a>
-            </div>
-            {% endfor %}
+
+        {% for ProfileData in ProfileDatas %}
+        <div class="card-footer bg-white d-flex justify-content-center py-3 rounded-bottom-4">
+            <a href="{% url 'update_profile' ProfileData.id %}" 
+               class="btn px-4 shadow-sm"
+               style="background-color: #0066ff; color: white; border-radius: 30px;">
+                Edit Profile
+            </a>
+        </div>
+        {% endfor %}
+
     </div>
 </div>
 {% endblock content %}
+
+

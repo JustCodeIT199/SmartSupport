@@ -1,12 +1,112 @@
-{% extends 'Base.html'%}
-    {% block content %}
-    <div class="col-4 offset-3">
-    <h1>Update page</h1>
-   <form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <br>
-    <button type="submit" class="btn btn-secondary">Submit</button> &nbsp;
-   </form>
+{% extends 'Base.html' %}
+
+{% block content %}
+<style>
+    :root {
+        --primary-color: #0066ff;
+        --primary-hover: #0052cc;
+        --primary-active: #0041a3;
+        --background: #f9fafb;
+        --form-bg: #ffffff;
+        --input-border: #ccc;
+        --input-bg: #f9f9f9;
+        --text-color: #333;
+    }
+
+    body {
+        background-color: var(--background);
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+    }
+
+    .update-container {
+        max-width: 600px;
+        margin: 80px auto;
+        padding: 40px 30px;
+        background-color: var(--form-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.6s ease;
+    }
+
+    .update-container h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        font-size: 2rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form input, form select, form textarea {
+        width: 100%;
+        padding: 14px;
+        margin: 10px 0 20px 0;
+        font-size: 1rem;
+        border: 1px solid var(--input-border);
+        border-radius: 8px;
+        background-color: var(--input-bg);
+        transition: all 0.3s ease;
+    }
+
+    form input:focus, form select:focus, form textarea:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 6px rgba(0, 102, 255, 0.3);
+        outline: none;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-2px);
+    }
+
+    button[type="submit"]:active {
+        background-color: var(--primary-active);
+        transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .update-container {
+            width: 90%;
+            padding: 25px;
+        }
+    }
+</style>
+
+<div class="update-container">
+    <h1>Update Page</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 </div>
-    {% endblock content %}
+
+{% endblock %}

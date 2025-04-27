@@ -6,65 +6,69 @@
         --primary-color: #0066ff;
         --primary-hover: #0052cc;
         --primary-active: #0041a3;
-        --background: #f9fafb;
+        --background: #f0f2f5;
         --form-bg: #ffffff;
-        --input-border: #ddd;
-        --input-bg: #f9f9f9;
+        --input-border: #d1d5db;
+        --input-bg: #f9fafb;
         --text-color: #333;
+        --shadow-color: rgba(0, 0, 0, 0.1);
     }
 
     body {
         background-color: var(--background);
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: var(--text-color);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .form-container {
-        max-width: 550px;
-        margin: 60px auto;
-        padding: 35px 30px;
-        background: var(--form-bg);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        border-radius: 12px;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px 25px;
+        background-color: var(--form-bg);
+        box-shadow: 0 10px 30px var(--shadow-color);
+        border-radius: 15px;
+        animation: fadeIn 0.8s ease;
     }
 
     .form-container h1 {
         text-align: center;
         font-size: 2rem;
+        font-weight: 700;
         color: var(--primary-color);
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
-    .form-container form {
+    form {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
     input, select, textarea {
         width: 100%;
-        padding: 14px;
-        margin: 10px 0 20px 0;
+        padding: 12px 15px;
         font-size: 1rem;
         border: 1px solid var(--input-border);
-        border-radius: 6px;
+        border-radius: 8px;
         background-color: var(--input-bg);
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        transition: 0.3s all ease;
     }
 
     input:focus, select:focus, textarea:focus {
         border-color: var(--primary-color);
-        box-shadow: 0 0 6px rgba(0, 102, 255, 0.3);
+        box-shadow: 0 0 8px rgba(0, 102, 255, 0.25);
+        background-color: #fff;
         outline: none;
     }
 
     button {
-        width: 100%;
-        padding: 14px;
-        font-size: 1rem;
+        padding: 12px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
         background-color: var(--primary-color);
-        color: #fff;
+        color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
@@ -79,14 +83,25 @@
         transform: translateY(0);
     }
 
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     @media (max-width: 768px) {
         .form-container {
             width: 90%;
-            padding: 25px;
+            padding: 20px;
         }
 
         .form-container h1 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
         }
     }
 </style>

@@ -280,7 +280,7 @@ def RemoveTask(request,pk):
 def reopentask(request,pk):
     if request.user.is_authenticated:
         TaskDatas=TaskDetail.objects.get(id=pk)
-        TaskDatas.TASK_STATUS='Reopen'
+        TaskDatas.TASK_STATUS=' Reverifying'
         holder=User.objects.get(username=TaskDatas.TASK_CLOSED)
         TaskDatas.save()
         MyCart(user=holder,task=TaskDatas).save()
@@ -288,8 +288,7 @@ def reopentask(request,pk):
         return redirect('base') 
     else:
        messages.success(request,"You must have to login to Reopen task!")
-       return redirect('login')   
-
+       return redirect('login')
 
 #Resolved_Task
 def resolvedtask(request,pk):

@@ -1,41 +1,31 @@
 {% extends 'Base.html' %}
 {% block content %}
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="w-100" style="max-width: 600px;">
-        {% for cart in Carts %}
-        <div class="card shadow-lg rounded-4 mb-4 border-0" style="background-color: #f8f9fa;">
-            <div class="card-header bg-primary text-white rounded-top-4">
-                <h4 class="mb-0 text-center">Task Details</h4>
-            </div>
+<div class="container d-flex flex-column align-items-center mt-5">
 
-            <div class="card-body bg-light px-4 py-3">
-                <p><strong>TASK ID:</strong> {{ cart.id }}</p>
-                <p><strong>TASK TITLE:</strong> {{ cart.task.TASK_TITLE }}</p>
-                <p><strong>TASK CREATED BY:</strong> {{ cart.task.TASK_CREATED }}</p>
-                <p><strong>TASK CREATED ON:</strong> {{ cart.task.TASK_CREATED_ON }}</p>
-                <p><strong>TASK DUE DATE:</strong> {{ cart.task.TASK_DUE_DATE }}</p>
-                <p><strong>TASK STATUS:</strong> {{ cart.task.TASK_STATUS }}</p>
-                <p><strong>TASK HOLDER:</strong> {{ request.user.username }}</p>
-                <p><strong>TASK DESCRIPTION:</strong> {{ cart.task.TASK_DESCRIPTION }}</p>
-            </div>
-
-            <div class="card-footer bg-white text-end d-flex justify-content-between flex-wrap gap-2 px-4 py-3">
-                <a href="{% url 'base' %}" class="btn btn-outline-primary px-4">Go Back</a>
-                <div>
-                    <a href="{% url 'closedtask' cart.task.id %}" 
-                       class="btn fw-medium rounded-3 me-2" 
-                       style="background-color: #ffd700; color: #000;">
-                       Close
-                    </a>
-                    <a href="{% url 'removetask' cart.task.id %}" 
-                       class="btn fw-medium rounded-3" 
-                       style="background-color: #dc3545; color: white;">
-                       Remove
-                    </a>
-                </div>
-            </div>
+    {% for cart in Carts %}
+    <div class="card shadow-lg rounded-4 mb-4" style="max-width: 28rem; width: 100%; background-color: #f8f9fa;">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+            <h4 class="mb-0">Task Details</h4>
         </div>
-        {% endfor %}
+
+        <div class="card-body bg-light px-4 py-3">
+            <p><strong>TASK ID:</strong> {{ cart.id }}</p>
+            <p><strong>TASK TITLE:</strong> {{ cart.task.TASK_TITLE }}</p>
+            <p><strong>TASK CREATED BY:</strong> {{ cart.task.TASK_CREATED }}</p>
+            <p><strong>TASK CREATED ON:</strong> {{ cart.task.TASK_CREATED_ON }}</p>
+            <p><strong>TASK DUE DATE:</strong> {{ cart.task.TASK_DUE_DATE }}</p>
+            <p><strong>TASK STATUS:</strong> {{ cart.task.TASK_STATUS }}</p>
+            <p><strong>TASK HOLDER:</strong> {{ request.user.username }}</p>
+            <p><strong>TASK DESCRIPTION:</strong> {{ cart.task.TASK_DESCRIPTION }}</p>
+        </div>
+
+        <div class="card-footer bg-white d-flex flex-wrap justify-content-center gap-2 py-3">
+            <a href="{% url 'base' %}" class="btn btn-outline-primary px-4">Go Back</a>
+            <a href="{% url 'closedtask' cart.task.id %}" class="btn btn-outline-warning px-4">Closed</a>
+            <a href="{% url 'removetask' cart.task.id %}" class="btn btn-outline-danger px-4">Remove Task</a>
+        </div>
     </div>
+    {% endfor %}
+
 </div>
 {% endblock content %}

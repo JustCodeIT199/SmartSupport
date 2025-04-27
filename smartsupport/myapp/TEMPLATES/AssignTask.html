@@ -1,12 +1,138 @@
 {% extends 'Base.html' %}
+
 {% block content %}
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="card shadow-lg rounded-4" style="width: 100%; max-width: 600px;">
-        <div class="card-header bg-success text-white rounded-top-4">
-            <h4 class="mb-0 text-center">Assign Task: {{ task.TASK_TITLE }}</h4>
+<style>
+    :root {
+        --primary-color: #0066ff;
+        --success-color: #28a745;
+        --success-hover: #218838;
+        --text-dark: #333;
+        --background-light: #f8f9fa;
+        --card-bg: #ffffff;
+        --border-radius: 12px;
+    }
+
+    body {
+        background-color: var(--background-light);
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-dark);
+    }
+
+    .assign-container {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+    }
+
+    .card-custom {
+        width: 100%;
+        max-width: 600px;
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        animation: slideIn 0.5s ease;
+    }
+
+    .card-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .card-body {
+        background-color: #f9f9f9;
+        padding: 30px;
+    }
+
+    label {
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    select.form-select {
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        transition: border-color 0.3s;
+    }
+
+    select.form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 5px rgba(0, 102, 255, 0.3);
+        outline: none;
+    }
+
+    .btn-submit {
+        background-color: var(--success-color);
+        border: none;
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 8px;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: var(--success-hover);
+        transform: translateY(-2px);
+    }
+
+    .btn-back {
+        margin-top: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        font-size: 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-back:hover {
+        background-color: #0052cc;
+    }
+
+    .card-footer {
+        padding: 20px;
+        text-align: right;
+        background-color: #fff;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .card-custom {
+            margin: 20px;
+        }
+    }
+</style>
+
+<div class="assign-container">
+    <div class="card-custom">
+        <div class="card-header">
+            Assign Task: {{ task.TASK_TITLE }}
         </div>
 
-        <div class="card-body bg-light">
+        <div class="card-body">
             <form method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -18,14 +144,15 @@
                     </select>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-outline-success">Assign Task</button>
+                    <button type="submit" class="btn-submit">Assign Task</button>
                 </div>
             </form>
         </div>
 
-        <div class="card-footer bg-white text-end">
-            <a href="{% url 'base' %}" class="btn btn-outline-primary">Go Back</a>
+        <div class="card-footer">
+            <a href="{% url 'base' %}" class="btn-back">Go Back</a>
         </div>
     </div>
 </div>
-{% endblock content %}
+
+{% endblock %}

@@ -1,13 +1,17 @@
-{%extends 'Base.html'%}
-    {%  block content %}
-    <div class="col-4 offset-4">
-    <h1> Registration Page</h1>
-    <form action="" method="post">
+{% extends 'Base.html' %}
+{% block content %}
+<div class="col-4 offset-4">
+    <h1 class="text-center mb-4">Registration Page</h1>
+
+    <form action="" method="post" autocomplete="off">
         {% csrf_token %}
-        {{Register_forms}}
-        {{UserProfile_forms}}
-        <br>
-        <button type="submit" class="btn btn-primary">Register</button>
+        
+        {{ Register_forms.as_p }}
+        {{ UserProfile_forms.as_p }}
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
     </form>
 </div>
-    {%  endblock content %}
+{% endblock content %}

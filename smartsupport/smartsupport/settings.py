@@ -54,10 +54,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'smartsupport.urls'
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # <--- this line added!
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +73,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'smartsupport.wsgi.application'
 
@@ -132,7 +137,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 #EMAIL
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_POST = 587
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER ='2022ce05f@sigce.edu.in'
 EMAIL_HOST_PASSWORD ='mvjwomtwlgzovagq'

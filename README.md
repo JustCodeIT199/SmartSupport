@@ -62,7 +62,7 @@ Admin Panel: http://127.0.0.1:8000/admin/
 
 
 ✍️ Author
-JustCodeIT199
+JustCodeIT199 , Malhar-bhoir
 
 🤝 Contributing
 Pull requests are welcome! If you have ideas to improve the app, feel free to fork and contribute.

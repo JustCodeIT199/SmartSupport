@@ -203,9 +203,3 @@ Please ensure your code follows Django best practices and includes relevant comm
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-
-<div align="center">
-
-Built with ❤️ to make campus life a little smoother
-
-</div>
